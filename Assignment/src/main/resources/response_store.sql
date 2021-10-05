@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS RESPONSE_STORE;
-  
-CREATE TABLE RESPONSE_STORE (
-  id INT PRIMARY KEY,
-  duplicate_chars VARCHAR(250),
-  replace_spaces VARCHAR(250),
-  largest_number INT
-);
