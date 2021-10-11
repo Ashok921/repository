@@ -28,6 +28,9 @@ public class UserDetailsValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
+		
+		// Method to validate user details for registering users
+		
 		LOGGER.info("Entering into UserDetailsValidator");
 		UserDTO userDTO = (UserDTO)target;
 		UserDTO user = new UserDTO();

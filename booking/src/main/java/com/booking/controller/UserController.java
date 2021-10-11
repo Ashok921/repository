@@ -36,6 +36,9 @@ public class UserController {
 	@RequestMapping(value="/registerUser", method = RequestMethod.POST, produces = "application/json")
 	@ApiResponses(value = {@ApiResponse(code = 200, message = "Successfully registered user"), @ApiResponse(code = 400, message = "Missing or invalid request body"), @ApiResponse(code = 500, message = "Internal error")})
 	public String registerUser(@RequestBody UserDTO userDTO,BindingResult errors) throws BindException {
+		
+		// End point for registering new user
+		
 		LOGGER.info("Entering into registerUser method");
 		ValidationUtils.invokeValidator(userDetailsValidator, userDTO, errors);
 		if(errors.hasErrors()) {
@@ -55,6 +58,9 @@ public class UserController {
 	@RequestMapping(value="/getUserByMobNumber/{mobileNumber}", method = RequestMethod.GET,produces = "application/json")
 	@ApiResponses(value = {@ApiResponse(code = 200, message = "Successfully retrieved user details"), @ApiResponse(code = 400, message = "Missing or invalid request body"), @ApiResponse(code = 500, message = "Internal error")})
 	public UserDTO getUserDetailsByMobileNumber(@PathVariable Long mobileNumber) throws BadRequestException, DataNotFoundException {
+		
+		// End point for retrieving user details using mobile number
+		
 		LOGGER.info("Entering into getUserDetailsByMobileNumber");
 		if(mobileNumber==null) {
 			
@@ -71,6 +77,9 @@ public class UserController {
 	@RequestMapping(value="/getUserByEmailId/{emailId}", method = RequestMethod.GET,produces = "application/json")
 	@ApiResponses(value = {@ApiResponse(code = 200, message = "Successfully retrieved user details"), @ApiResponse(code = 400, message = "Missing or invalid request body"), @ApiResponse(code = 500, message = "Internal error")})
 	public UserDTO getUserDetailsByEmailId(@PathVariable String emailId) throws BadRequestException, DataNotFoundException {
+		
+		// End point for retrieving user details using emailId
+		
 		LOGGER.info("Entering into getUserDetailsByEmailId");
 		if(StringUtils.isEmpty(emailId)) {
 			throw new BadRequestException("please enter a valid mobile number");
@@ -85,6 +94,8 @@ public class UserController {
 	
 	@RequestMapping(value="/getAllUsers", method = RequestMethod.GET,produces = "application/json")
 	public void getAllUsers() {
+		
+		// End point for retrieving users in an excel sheet
 		LOGGER.info("Entering into getAllUsers");
 		userService.getAllUsers();
 	}

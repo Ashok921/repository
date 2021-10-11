@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
+	// class for defining configurations
+	
 	@Value("${fileName}")
 	private String fileName;
 	

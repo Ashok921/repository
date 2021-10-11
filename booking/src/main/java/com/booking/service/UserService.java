@@ -36,6 +36,9 @@ public class UserService {
 	private String fileName;
 
 	public User registerUser(UserDTO userDTO) {
+		
+		// Method to register User in database
+		
 		LOGGER.info("Entering into registerUser");
 		User user = mapper.mapUserDtoToUser(userDTO);
 		User userDao = userRepository.save(user);
@@ -45,6 +48,9 @@ public class UserService {
 	}
 	
 	public UserDTO getUserDetails(Long mobileNumber){
+		
+		// Method to get user details using mobile number
+		
 		LOGGER.info("Entering into getUserDetails");
 		UserDTO userDTO = null;
 		Optional<User> userDao = userRepository.findById(mobileNumber);
@@ -60,6 +66,9 @@ public class UserService {
 	}
 	
 	public UserDTO getUserDetailsByEmailId(String emailId) {
+		
+		// Method to get user details by using email Id
+		
 		LOGGER.info("Entering into getUserDetailsByEmailId");
 		UserDTO userDTO = null;
 		User user = userRepository.findByEmailId(emailId);
@@ -72,6 +81,8 @@ public class UserService {
 	}
 	
 	public void getAllUsers() {
+		
+		// Method to get all users details in an excel sheet
 		LOGGER.info("Entering into getAllUsers");
 		List<User> users = userRepository.findAll();
 		

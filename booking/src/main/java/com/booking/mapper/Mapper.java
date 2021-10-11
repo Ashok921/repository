@@ -9,6 +9,8 @@ import com.booking.model.UserDTO;
 public class Mapper {
 
 	public User mapUserDtoToUser(UserDTO userDTO) {
+
+		//Method to convert UserDto to User
 		User user = new User();
 		user.setFirstName(userDTO.getFirstName());
 		user.setLastName(userDTO.getLastName());
@@ -19,6 +21,8 @@ public class Mapper {
 	}
 	
 	public UserDTO mapUserToUserDto(User user) {
+
+		//Method to convert User to UserDto
 		UserDTO userDTO= new UserDTO();
 		userDTO.setMobileNumber(user.getMobileNumber());
 		userDTO.setEmailId(user.getEmailId());
